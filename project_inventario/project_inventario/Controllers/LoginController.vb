@@ -27,5 +27,12 @@ Namespace Controllers
             Return RedirectToAction("Login", "Login", New With {.id = 1})
         End Function
 
+        <HttpPost>
+        <AllowAnonymous>
+        Public Async Function Login(datos As Login) As Task(Of ActionResult)
+            datos.crearRegistroLog()
+            Return RedirectToAction("Login", "Login", New With {.id = 1})
+        End Function
+
     End Class
 End Namespace
